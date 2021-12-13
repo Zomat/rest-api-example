@@ -9,12 +9,12 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        return Article::all();
+        return response()->json(Article::all());
     }
 
     public function show(Article $article)
     {
-        return $article;
+        return response()->json($article, 200);
     }
 
     public function store(Request $request)
@@ -37,6 +37,4 @@ class ArticleController extends Controller
 
         return response()->json(null, 204);
     }
-
-
 }
