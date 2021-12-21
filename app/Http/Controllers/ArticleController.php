@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 
+/**
+ * @group Article
+ */
+
 class ArticleController extends Controller
 {
     /**

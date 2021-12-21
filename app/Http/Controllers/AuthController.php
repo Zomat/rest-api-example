@@ -10,6 +10,10 @@ use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
 
+/**
+ * @group User authentication
+ */
+
 class AuthController extends Controller
 {
     /**
@@ -57,6 +61,11 @@ class AuthController extends Controller
 
             $status = 401;
         } else {
+
+            if ($user->tokens()->where('name', 'myapptoken')->count() > 0) {
+                $user->tokens()->where('name', 'myapptoken')->delete();
+            }
+
             $token = $user->createToken('myapptoken')->plainTextToken;
 
             $response = [

@@ -1,0 +1,1279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Laravel Documentation</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../docs/css/theme-default.style.css" media="screen">
+    <link rel="stylesheet" href="../docs/css/theme-default.print.css" media="print">
+
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.10/lodash.min.js"></script>
+
+    <link rel="stylesheet"
+          href="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/styles/obsidian.min.css">
+    <script src="https://unpkg.com/@highlightjs/cdn-assets@10.7.2/highlight.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jets/0.14.1/jets.min.js"></script>
+
+    <style id="language-style">
+        /* starts out as display none and is replaced with js later  */
+                    body .content .bash-example code { display: none; }
+                    body .content .javascript-example code { display: none; }
+            </style>
+
+    <script>
+        var baseUrl = "http://rest-api.test";
+        var useCsrf = Boolean();
+        var csrfUrl = "/sanctum/csrf-cookie";
+    </script>
+    <script src="../docs/js/tryitout-3.19.1.js"></script>
+
+    <script src="../docs/js/theme-default-3.19.1.js"></script>
+
+</head>
+
+<body data-languages="[&quot;bash&quot;,&quot;javascript&quot;]">
+
+<a href="#" id="nav-button">
+    <span>
+        MENU
+        <img src="../docs/images/navbar.png" alt="navbar-image" />
+    </span>
+</a>
+<div class="tocify-wrapper">
+    
+            <div class="lang-selector">
+                                            <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                            <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                    </div>
+    
+    <div class="search">
+        <input type="text" class="search" id="input-search" placeholder="Search">
+    </div>
+
+    <div id="toc">
+                                                                            <ul id="tocify-header-0" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="introduction">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                                            
+                                                                    </ul>
+                                                <ul id="tocify-header-1" class="tocify-header">
+                    <li class="tocify-item level-1" data-unique="authenticating-requests">
+                        <a href="#authenticating-requests">Authenticating requests</a>
+                    </li>
+                                            
+                                                </ul>
+                    
+                    <ul id="tocify-header-2" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="endpoints">
+                    <a href="#endpoints">Endpoints</a>
+                </li>
+                                    <ul id="tocify-subheader-endpoints" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-articles">
+                        <a href="#endpoints-GETapi-articles">Get all articles.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-GETapi-articles--article-">
+                        <a href="#endpoints-GETapi-articles--article-">Get article by id.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-register">
+                        <a href="#endpoints-POSTapi-register">Register new user.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-login">
+                        <a href="#endpoints-POSTapi-login">Login user.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-articles">
+                        <a href="#endpoints-POSTapi-articles">Store new article.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-PUTapi-articles--article-">
+                        <a href="#endpoints-PUTapi-articles--article-">Update article.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-articles--article-">
+                        <a href="#endpoints-DELETEapi-articles--article-">Delete article.</a>
+                    </li>
+                                    <li class="tocify-item level-2" data-unique="endpoints-POSTapi-logout">
+                        <a href="#endpoints-POSTapi-logout">Logout user.</a>
+                    </li>
+                                                    </ul>
+                            </ul>
+        
+                        
+            </div>
+
+            <ul class="toc-footer" id="toc-footer">
+                            <li><a href="../docs/collection.json">View Postman collection</a></li>
+                            <li><a href="../docs/openapi.yaml">View OpenAPI spec</a></li>
+                            <li><a href="http://github.com/knuckleswtf/scribe">Documentation powered by Scribe ✍</a></li>
+                    </ul>
+        <ul class="toc-footer" id="last-updated">
+        <li>Last updated: December 16 2021</li>
+    </ul>
+</div>
+
+<div class="page-wrapper">
+    <div class="dark-box"></div>
+    <div class="content">
+        <h1 id="introduction">Introduction</h1>
+<p>This documentation aims to provide all the information you need to work with our API.</p>
+<aside>As you scroll, you'll see code examples for working with the API in different programming languages in the dark area to the right (or as part of the content on mobile).
+You can switch the language used with the tabs at the top right (or from the nav menu at the top left on mobile).</aside>
+<blockquote>
+<p>Base URL</p>
+</blockquote>
+<pre><code class="language-yaml">http://rest-api.test</code></pre>
+
+        <h1 id="authenticating-requests">Authenticating requests</h1>
+<p>This API is not authenticated.</p>
+
+        <h1 id="endpoints">Endpoints</h1>
+
+    
+
+            <h2 id="endpoints-GETapi-articles">Get all articles.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-articles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api.test/api/articles" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/articles"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-articles">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">[
+    {
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;Voluptas voluptas nobis iusto eveniet consequatur non.&quot;,
+        &quot;body&quot;: &quot;Explicabo omnis fugit et. Iure magni est sit modi iusto.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 2,
+        &quot;title&quot;: &quot;Possimus id quidem est libero.&quot;,
+        &quot;body&quot;: &quot;Iure quis fuga delectus et quaerat explicabo eligendi. Ex eos quis eum repudiandae. Debitis magnam et similique ut. Aut tempore nisi voluptatum aut.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 3,
+        &quot;title&quot;: &quot;Sed deserunt repellat autem laborum omnis commodi rerum id.&quot;,
+        &quot;body&quot;: &quot;Voluptatem id suscipit illo voluptas rem exercitationem. Placeat excepturi ut consequatur maiores dolor temporibus. Cumque eos in modi illo. Optio quia provident et provident nihil facere aliquam.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 4,
+        &quot;title&quot;: &quot;Reiciendis officia doloremque molestiae.&quot;,
+        &quot;body&quot;: &quot;Temporibus excepturi quo pariatur maxime et ex totam. Molestiae sed omnis fugiat dolores. Nostrum sed ut et voluptate. Laboriosam quidem architecto excepturi.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 5,
+        &quot;title&quot;: &quot;Est occaecati laboriosam est reprehenderit.&quot;,
+        &quot;body&quot;: &quot;Quos totam molestias repellat sunt necessitatibus eum ducimus ut. Eius repudiandae tempore molestiae culpa molestiae et. Libero ex modi quos blanditiis ut.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 6,
+        &quot;title&quot;: &quot;Reprehenderit ut eius dignissimos odit a.&quot;,
+        &quot;body&quot;: &quot;Magni vero numquam quos ipsum quia qui. Ut qui ipsum et dolores aut et maxime qui. Aut ipsum non autem quasi quis distinctio similique.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 7,
+        &quot;title&quot;: &quot;Sequi et iste minus sed laborum nostrum recusandae.&quot;,
+        &quot;body&quot;: &quot;Quia neque consequatur omnis et. Eum reiciendis est sit blanditiis velit excepturi expedita. Non adipisci fugit eius molestiae et.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 8,
+        &quot;title&quot;: &quot;Quaerat et repudiandae quia.&quot;,
+        &quot;body&quot;: &quot;Dicta eius rerum molestiae quos. Quisquam vel dolor expedita aliquam. Illo in sequi hic consequatur ad.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 9,
+        &quot;title&quot;: &quot;Quia consectetur est suscipit aliquid.&quot;,
+        &quot;body&quot;: &quot;Quaerat voluptatem veritatis aut dolorem modi eligendi. Doloribus consequatur harum quidem quis sed dolore eaque. Corrupti deserunt ducimus ab. Aliquam rerum officia eum corporis voluptatem.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 10,
+        &quot;title&quot;: &quot;Eum excepturi odit rerum quo magni inventore.&quot;,
+        &quot;body&quot;: &quot;Quo qui labore quo eligendi eius fugiat atque. Ut atque a voluptas laudantium eveniet iste beatae. Aperiam alias veniam iure doloribus odit ipsam debitis. Ut et commodi fuga fuga expedita.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 11,
+        &quot;title&quot;: &quot;Quia exercitationem itaque quaerat dolorem et dolores.&quot;,
+        &quot;body&quot;: &quot;Quidem voluptates eveniet commodi est ut. Et impedit non exercitationem. Omnis praesentium inventore animi minima quas et dolore debitis. Expedita iusto quibusdam pariatur aliquid.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 12,
+        &quot;title&quot;: &quot;Alias qui labore deserunt quia.&quot;,
+        &quot;body&quot;: &quot;Animi quis perferendis quae fugit. Ducimus dolorem ea fugit aut et rerum est. Non quia sit dolorum dolorem qui consequuntur ipsam debitis. Quia ab natus aut aut.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 13,
+        &quot;title&quot;: &quot;Aut dolorem fuga deleniti quam delectus qui voluptatem.&quot;,
+        &quot;body&quot;: &quot;Optio odio eos rerum voluptate sint mollitia. Qui error dolore molestiae asperiores repellendus eum. Cupiditate quibusdam officiis quia voluptas similique nihil nihil. Aliquam vel cum natus vitae placeat sint doloribus enim.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 14,
+        &quot;title&quot;: &quot;Quia dolor odio quis et facere ab.&quot;,
+        &quot;body&quot;: &quot;Aut consequatur dolore molestiae enim voluptas possimus non. Nihil ut iste excepturi nemo totam. Odio ipsa laboriosam quis amet.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 15,
+        &quot;title&quot;: &quot;Mollitia excepturi accusantium aut fugiat dignissimos iure corrupti.&quot;,
+        &quot;body&quot;: &quot;Fugit quas omnis ut ea quaerat eveniet laudantium. Architecto necessitatibus laboriosam perspiciatis qui sint qui. Quibusdam neque quisquam maxime culpa.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 16,
+        &quot;title&quot;: &quot;Reiciendis eius rerum explicabo laborum deserunt dolorum quisquam.&quot;,
+        &quot;body&quot;: &quot;Sit expedita eum molestias eum qui dolor assumenda inventore. A rerum voluptate hic vero excepturi tenetur vel non. Fugiat unde placeat consequatur recusandae praesentium aut.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 17,
+        &quot;title&quot;: &quot;Iusto placeat et quae dolores reiciendis.&quot;,
+        &quot;body&quot;: &quot;Officiis et iure numquam illo doloribus a officiis. Molestiae suscipit praesentium cumque aut amet atque asperiores. Quaerat error ullam voluptates deleniti. Similique ut quam dolor nihil.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 18,
+        &quot;title&quot;: &quot;Sunt rerum omnis sint.&quot;,
+        &quot;body&quot;: &quot;Consequatur iusto quaerat dolore hic. Et vel qui nulla et qui ex. Autem omnis eaque autem officia optio eaque qui sunt.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 19,
+        &quot;title&quot;: &quot;Non velit nesciunt repudiandae.&quot;,
+        &quot;body&quot;: &quot;Et totam in doloremque doloribus. Dolore asperiores labore eum odio.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 20,
+        &quot;title&quot;: &quot;Aut laborum placeat dolorum aspernatur.&quot;,
+        &quot;body&quot;: &quot;Corporis sequi vel nesciunt modi ducimus. Quos nisi ut dolorem omnis. Porro assumenda iusto quisquam. Molestiae necessitatibus voluptate qui officia. Et molestiae tenetur non voluptatem maiores veniam.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 21,
+        &quot;title&quot;: &quot;Voluptas suscipit reprehenderit sit reiciendis.&quot;,
+        &quot;body&quot;: &quot;Cum nobis corporis ea voluptates ad incidunt aut vero. Non similique sint omnis quos non.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 22,
+        &quot;title&quot;: &quot;Exercitationem voluptatem hic magni voluptas amet.&quot;,
+        &quot;body&quot;: &quot;Aperiam blanditiis error consectetur molestiae quo exercitationem hic aspernatur. Facilis autem ut quae totam alias non. Provident quis eveniet doloremque quasi aspernatur iusto natus. Reiciendis eligendi delectus et sint.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 23,
+        &quot;title&quot;: &quot;Sint nihil accusamus officia aut est facere.&quot;,
+        &quot;body&quot;: &quot;Doloribus ex iste sapiente perspiciatis dolore omnis. Magni sint vel quaerat eum officia corrupti consequatur aut. Distinctio amet adipisci ex et.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 24,
+        &quot;title&quot;: &quot;Impedit porro architecto explicabo at deserunt dolorem sed minima.&quot;,
+        &quot;body&quot;: &quot;Laudantium sequi omnis enim et. Reprehenderit recusandae veniam perferendis. Cupiditate autem nisi perspiciatis magni. Iusto voluptatem nesciunt illum aut voluptatem natus fuga.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 25,
+        &quot;title&quot;: &quot;Commodi occaecati omnis aut qui placeat.&quot;,
+        &quot;body&quot;: &quot;Consequuntur hic mollitia qui in sed. Neque sed quas consequatur debitis quaerat vel et nemo. Earum rem aut et commodi neque.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 26,
+        &quot;title&quot;: &quot;Est totam ut dolor aut.&quot;,
+        &quot;body&quot;: &quot;Maiores odio magnam voluptatem. Iusto et quia voluptatum deserunt nihil. Accusamus vel quidem porro sit aut minima. Et hic minus porro.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 27,
+        &quot;title&quot;: &quot;Tempore tempore aut consectetur quisquam aut.&quot;,
+        &quot;body&quot;: &quot;Ipsa alias quo ipsam eaque qui et. Quod iure exercitationem magni voluptates amet incidunt est.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 28,
+        &quot;title&quot;: &quot;Architecto est nesciunt nisi.&quot;,
+        &quot;body&quot;: &quot;Minus dolorum qui libero. Officiis distinctio autem sit ratione eos ea inventore occaecati. Ea praesentium tempora nulla architecto nesciunt corrupti.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 29,
+        &quot;title&quot;: &quot;Laboriosam autem qui fugiat.&quot;,
+        &quot;body&quot;: &quot;Ab officia similique dolores suscipit et. Quaerat laudantium fugiat enim unde mollitia. Similique rem explicabo vel ut fugiat.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 30,
+        &quot;title&quot;: &quot;Blanditiis iste consectetur aut nihil eos.&quot;,
+        &quot;body&quot;: &quot;Quidem maxime nihil omnis veritatis ipsum sunt. Eum aut fugiat corrupti qui ad. Et et voluptas reprehenderit non quia quod excepturi modi. Doloribus qui mollitia eum cum dolore.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 31,
+        &quot;title&quot;: &quot;Similique sunt optio dolorem libero.&quot;,
+        &quot;body&quot;: &quot;Voluptatibus alias praesentium aspernatur voluptas modi numquam molestiae. Aut temporibus atque ipsum tempore amet officia. Rem labore sit fuga sit dolores dolores ab. Quam est et non distinctio sint et dolores eius. Incidunt tempore vitae deleniti facere quo libero quas.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 32,
+        &quot;title&quot;: &quot;Asperiores saepe et velit distinctio quia velit nesciunt.&quot;,
+        &quot;body&quot;: &quot;Sequi natus tempore dolorem natus provident voluptatibus. Reiciendis tempore est voluptatem officia. Placeat vitae esse iste ullam aut.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 33,
+        &quot;title&quot;: &quot;Consequatur ipsam ducimus possimus et minus error.&quot;,
+        &quot;body&quot;: &quot;Perferendis qui rerum veniam non nam ut. Ipsa voluptatibus id sed velit. Minima minima ipsum commodi ratione eligendi illo eum. Aspernatur eaque voluptates totam sit omnis saepe voluptas.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 34,
+        &quot;title&quot;: &quot;Id rerum autem harum vel quas maiores.&quot;,
+        &quot;body&quot;: &quot;Numquam velit aliquid eligendi aliquam at eius. Dolores neque qui beatae aut sed. Dolor culpa quis sit amet. Voluptas qui eius provident aut tenetur pariatur laborum.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 35,
+        &quot;title&quot;: &quot;Sunt et blanditiis magnam id tempora.&quot;,
+        &quot;body&quot;: &quot;Suscipit et voluptatem velit. Ipsa sequi accusantium maxime cum aliquam quibusdam. Eaque consequatur et quae dignissimos cupiditate dolores.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 36,
+        &quot;title&quot;: &quot;Veritatis autem nisi qui et et.&quot;,
+        &quot;body&quot;: &quot;Rem sint cum cumque vel porro. Officiis molestias omnis molestiae similique. Possimus mollitia omnis labore eum voluptatem id vel.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 37,
+        &quot;title&quot;: &quot;Omnis non tempora quas illum rem explicabo dolores enim.&quot;,
+        &quot;body&quot;: &quot;Officia ex officiis dolores dolorum est occaecati ipsa. Adipisci nisi eveniet et natus. Sunt aut pariatur quia tempore est aut tempore.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 38,
+        &quot;title&quot;: &quot;Suscipit incidunt atque et repellendus aut saepe.&quot;,
+        &quot;body&quot;: &quot;Vel velit quidem quas molestiae alias. Et quia qui sed tenetur quos quo ipsam. Repudiandae hic aperiam animi tenetur et. Facere et reprehenderit modi totam maiores omnis.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 39,
+        &quot;title&quot;: &quot;Voluptatibus atque cumque explicabo nemo.&quot;,
+        &quot;body&quot;: &quot;Fugiat ut at magnam est maxime et architecto. Ad impedit blanditiis blanditiis distinctio modi esse atque. In dolor cumque voluptatibus esse natus officiis consectetur.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 40,
+        &quot;title&quot;: &quot;Id suscipit reiciendis numquam itaque.&quot;,
+        &quot;body&quot;: &quot;Voluptates eius distinctio dolor et cum dolor quis. Quos ea dicta iste minima aut neque ullam quos. In itaque a exercitationem facilis iste. Et minima laboriosam ut illo ipsam placeat.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 41,
+        &quot;title&quot;: &quot;Rerum nesciunt qui praesentium velit aut eveniet.&quot;,
+        &quot;body&quot;: &quot;Et fugit dignissimos velit doloribus officiis. Ut eos qui placeat eos odio a. Qui sint laborum necessitatibus consequatur.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 42,
+        &quot;title&quot;: &quot;Ipsam reiciendis qui officia repellat ipsam est aut.&quot;,
+        &quot;body&quot;: &quot;Nisi et et culpa saepe enim earum consequatur. Qui quam animi sit voluptatum rem fugiat autem. Illo tempore sunt possimus sint dignissimos.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 43,
+        &quot;title&quot;: &quot;Eum earum omnis sint consequatur aspernatur alias.&quot;,
+        &quot;body&quot;: &quot;Consequatur et eum dolore ut ut amet sed possimus. Nemo et rerum debitis ipsum qui ducimus laboriosam. Accusamus impedit eaque sed est voluptate voluptas est provident.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 44,
+        &quot;title&quot;: &quot;Blanditiis sed ea similique omnis.&quot;,
+        &quot;body&quot;: &quot;Assumenda error inventore aspernatur. Dolor vitae adipisci velit ipsa. Minus tempore tempore est.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 45,
+        &quot;title&quot;: &quot;Atque qui quo fuga aut optio architecto reiciendis.&quot;,
+        &quot;body&quot;: &quot;Consequuntur atque mollitia est. Consequatur explicabo aperiam et. Est assumenda at et ut alias eaque. Est recusandae sit recusandae quos atque temporibus recusandae voluptates.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 46,
+        &quot;title&quot;: &quot;Quasi minima ipsum voluptas ipsam magni id qui.&quot;,
+        &quot;body&quot;: &quot;Debitis debitis fuga qui assumenda. Fugiat recusandae hic sed voluptas. Est commodi in nulla odit reprehenderit sequi.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 47,
+        &quot;title&quot;: &quot;Molestias quia quos et blanditiis eos saepe.&quot;,
+        &quot;body&quot;: &quot;Assumenda odit at illo et rem dolor. Aut excepturi sapiente libero illum. Quam eum quas nesciunt fugiat sunt ut sunt beatae.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 48,
+        &quot;title&quot;: &quot;Id ut accusantium magni ullam odit ab libero rem.&quot;,
+        &quot;body&quot;: &quot;Ut ut pariatur reiciendis. Minus odit sed porro possimus velit. Et iste cupiditate ut sit et. Ea non nam dolores aut veritatis.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 49,
+        &quot;title&quot;: &quot;Aut illum blanditiis eum omnis.&quot;,
+        &quot;body&quot;: &quot;Et sit incidunt quia culpa voluptas. Earum quia eos minus. Voluptas possimus ut illum debitis placeat aut vel. Velit alias sed amet vel ut aut.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 50,
+        &quot;title&quot;: &quot;Culpa facilis dolores ad sed.&quot;,
+        &quot;body&quot;: &quot;Aut nesciunt dignissimos nam. Dignissimos consectetur a ea sapiente consequatur explicabo voluptate.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    },
+    {
+        &quot;id&quot;: 51,
+        &quot;title&quot;: &quot;Amet sed rerum voluptas ex.&quot;,
+        &quot;body&quot;: &quot;Exercitationem sed et mollitia eaque et quisquam. Et voluptatem corrupti aut voluptatem neque dolorem nobis. Eum maiores iste odio ex. Blanditiis earum id dolorum tempora vitae in.&quot;,
+        &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+    }
+]</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-articles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-articles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles"></code></pre>
+</span>
+<span id="execution-error-GETapi-articles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles"></code></pre>
+</span>
+<form id="form-GETapi-articles" data-method="GET"
+      data-path="api/articles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-articles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-articles"
+                    onclick="tryItOut('GETapi-articles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-articles"
+                    onclick="cancelTryOut('GETapi-articles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-articles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/articles</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-GETapi-articles--article-">Get article by id.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-articles--article-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://rest-api.test/api/articles/10" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/articles/10"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-articles--article-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary>
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+ </code></pre>
+        </details>         <pre>
+
+<code class="language-json">{
+    &quot;id&quot;: 10,
+    &quot;title&quot;: &quot;Eum excepturi odit rerum quo magni inventore.&quot;,
+    &quot;body&quot;: &quot;Quo qui labore quo eligendi eius fugiat atque. Ut atque a voluptas laudantium eveniet iste beatae. Aperiam alias veniam iure doloribus odit ipsam debitis. Ut et commodi fuga fuga expedita.&quot;,
+    &quot;created_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;,
+    &quot;updated_at&quot;: &quot;2021-12-14T14:04:46.000000Z&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-articles--article-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-articles--article-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-articles--article-"></code></pre>
+</span>
+<span id="execution-error-GETapi-articles--article-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-articles--article-"></code></pre>
+</span>
+<form id="form-GETapi-articles--article-" data-method="GET"
+      data-path="api/articles/{article}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-articles--article-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-articles--article-"
+                    onclick="tryItOut('GETapi-articles--article-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-articles--article-"
+                    onclick="cancelTryOut('GETapi-articles--article-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-articles--article-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/articles/{article}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="article"
+               data-endpoint="GETapi-articles--article-"
+               value="10"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-register">Register new user.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-register">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api.test/api/register" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"name\": \"recusandae\",
+    \"email\": \"ab\",
+    \"password\": \"et\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/register"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "name": "recusandae",
+    "email": "ab",
+    "password": "et"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-register">
+</span>
+<span id="execution-results-POSTapi-register" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-register"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-register"></code></pre>
+</span>
+<span id="execution-error-POSTapi-register" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-register"></code></pre>
+</span>
+<form id="form-POSTapi-register" data-method="POST"
+      data-path="api/register"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-register', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-register"
+                    onclick="tryItOut('POSTapi-register');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-register"
+                    onclick="cancelTryOut('POSTapi-register');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-register" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/register</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>name</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="name"
+               data-endpoint="POSTapi-register"
+               value="recusandae"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-register"
+               value="ab"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-register"
+               value="et"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-login">Login user.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-login">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api.test/api/login" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"email\": \"dolore\",
+    \"password\": \"eveniet\"
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/login"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "email": "dolore",
+    "password": "eveniet"
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-login">
+</span>
+<span id="execution-results-POSTapi-login" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-login"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-login"></code></pre>
+</span>
+<span id="execution-error-POSTapi-login" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-login"></code></pre>
+</span>
+<form id="form-POSTapi-login" data-method="POST"
+      data-path="api/login"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-login', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-login"
+                    onclick="tryItOut('POSTapi-login');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-login"
+                    onclick="cancelTryOut('POSTapi-login');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-login" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/login</code></b>
+        </p>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <p>
+            <b><code>email</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="email"
+               data-endpoint="POSTapi-login"
+               value="dolore"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+                <p>
+            <b><code>password</code></b>&nbsp;&nbsp;<small>string</small>  &nbsp;
+                <input type="text"
+               name="password"
+               data-endpoint="POSTapi-login"
+               value="eveniet"
+               data-component="body" hidden>
+    <br>
+
+        </p>
+        </form>
+
+            <h2 id="endpoints-POSTapi-articles">Store new article.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-articles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api.test/api/articles" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/articles"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-articles">
+</span>
+<span id="execution-results-POSTapi-articles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-articles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-articles"></code></pre>
+</span>
+<span id="execution-error-POSTapi-articles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-articles"></code></pre>
+</span>
+<form id="form-POSTapi-articles" data-method="POST"
+      data-path="api/articles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-articles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-articles"
+                    onclick="tryItOut('POSTapi-articles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-articles"
+                    onclick="cancelTryOut('POSTapi-articles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-articles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/articles</code></b>
+        </p>
+                    </form>
+
+            <h2 id="endpoints-PUTapi-articles--article-">Update article.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PUTapi-articles--article-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://rest-api.test/api/articles/9" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/articles/9"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-articles--article-">
+</span>
+<span id="execution-results-PUTapi-articles--article-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-articles--article-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-articles--article-"></code></pre>
+</span>
+<span id="execution-error-PUTapi-articles--article-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-articles--article-"></code></pre>
+</span>
+<form id="form-PUTapi-articles--article-" data-method="PUT"
+      data-path="api/articles/{article}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-articles--article-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-articles--article-"
+                    onclick="tryItOut('PUTapi-articles--article-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-articles--article-"
+                    onclick="cancelTryOut('PUTapi-articles--article-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-articles--article-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/articles/{article}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="article"
+               data-endpoint="PUTapi-articles--article-"
+               value="9"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-DELETEapi-articles--article-">Delete article.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-articles--article-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://rest-api.test/api/articles/14" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/articles/14"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-articles--article-">
+</span>
+<span id="execution-results-DELETEapi-articles--article-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-articles--article-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-articles--article-"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-articles--article-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-articles--article-"></code></pre>
+</span>
+<form id="form-DELETEapi-articles--article-" data-method="DELETE"
+      data-path="api/articles/{article}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-articles--article-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-articles--article-"
+                    onclick="tryItOut('DELETEapi-articles--article-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-articles--article-"
+                    onclick="cancelTryOut('DELETEapi-articles--article-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-articles--article-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/articles/{article}</code></b>
+        </p>
+                    <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <p>
+                <b><code>article</code></b>&nbsp;&nbsp;<small>integer</small>  &nbsp;
+                <input type="number"
+               name="article"
+               data-endpoint="DELETEapi-articles--article-"
+               value="14"
+               data-component="url" hidden>
+    <br>
+
+            </p>
+                    </form>
+
+            <h2 id="endpoints-POSTapi-logout">Logout user.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-logout">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://rest-api.test/api/logout" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://rest-api.test/api/logout"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-logout">
+</span>
+<span id="execution-results-POSTapi-logout" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-logout"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-logout"></code></pre>
+</span>
+<span id="execution-error-POSTapi-logout" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-logout"></code></pre>
+</span>
+<form id="form-POSTapi-logout" data-method="POST"
+      data-path="api/logout"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      data-headers='{"Content-Type":"application\/json","Accept":"application\/json"}'
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-logout', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-logout"
+                    onclick="tryItOut('POSTapi-logout');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-logout"
+                    onclick="cancelTryOut('POSTapi-logout');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-logout" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/logout</code></b>
+        </p>
+                    </form>
+
+    
+
+        
+    </div>
+    <div class="dark-box">
+                    <div class="lang-selector">
+                                                        <button type="button" class="lang-button" data-language-name="bash">bash</button>
+                                                        <button type="button" class="lang-button" data-language-name="javascript">javascript</button>
+                            </div>
+            </div>
+</div>
+</body>
+</html>
