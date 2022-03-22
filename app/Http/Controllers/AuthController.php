@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Http\JsonResponse;
 use App\Http\Requests\LoginRequest;
-use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\RegisterRequest;
+use App\Services\AuthService;
 
 /**
  * @group User authentication
@@ -24,20 +24,9 @@ class AuthController extends Controller
      */
     public function register(RegisterRequest $request)
     {
-        $fields = $request->validated();
+        $data = $request->validated();
 
-        $user = User::create([
-            'name' => $fields['name'],
-            'email' => $fields['email'],
-            'password' => bcrypt($fields['password'])
-        ]);
-
-        $token = $user->createToken('myapptoken')->plainTextToken;
-
-        $response = [
-            'user' => $user,
-            'token' => $token
-        ];
+        $response = (new AuthService)->register($data);
 
         return response()->json($response, 201);
     }
@@ -50,33 +39,11 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        $fields = $request->validated();
+        $data = $request->validated();
 
-        $user = User::where('email', $fields['email'])->first();
+        $response = (new AuthService)->login($data);
 
-        if (!$user || !Hash::check($fields['password'], $user->password)) {
-            $response = [
-                'message' => 'Bad credentials.'
-            ];
-
-            $status = 401;
-        } else {
-
-            if ($user->tokens()->where('name', 'myapptoken')->count() > 0) {
-                $user->tokens()->where('name', 'myapptoken')->delete();
-            }
-
-            $token = $user->createToken('myapptoken')->plainTextToken;
-
-            $response = [
-                'user' => $user,
-                'token' => $token
-            ];
-
-            $status = 200;
-        }
-
-        return response()->json($response, $status);
+        return response()->json($response['data'], $response['status']);
     }
 
 
